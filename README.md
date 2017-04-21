@@ -1,5 +1,5 @@
-# *Javaduino*
-Ferramenta simples desenvolvida em Java que converte comunicação serial do Arduino para pacotes UDP em broadcast na rede.<br/>
+# Comunicação Arduino via UDP sem shield
+*Javaduino* é uma ferramenta simples desenvolvida em Java que converte comunicação serial do Arduino para pacotes UDP em broadcast na rede.<br/>
 
 # Motivação
 Fez-se necessário substituir a necessidade de uma shield para comunicação do Arduino em rede, reduzindo assim custos de projetos em fase de testes.<br/>
