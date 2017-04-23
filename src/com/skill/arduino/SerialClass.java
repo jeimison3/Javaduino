@@ -61,8 +61,9 @@ public class SerialClass implements SerialPortEventListener {
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 String inputLine=input.readLine();
-                Main.writeUDPData(inputLine);
                 System.out.println("[ARDUINO OUT]: "+inputLine);
+                SkillForm1.incSerial();
+                Main.writeUDPData(inputLine);
             } catch (Exception e) {
                 System.err.println(e.toString());
             }

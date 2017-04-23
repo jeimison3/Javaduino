@@ -11,6 +11,7 @@ public class Main {
 
     static BroadcastServer brdServ;
     static BroadcastClient brdSend;
+    public static SkillForm1 form1;
     static CommPortIdentifier portSerial;
     public static SerialThread serialThr;
     public static HashSet<InetAddress> broads;
@@ -24,7 +25,6 @@ public class Main {
             if(data.indexOf("[SERVER_CLOSE]")!=-1) {serialThr.interrupt();brdServ.interrupt();}
             Main.serialThr.serial.serialPort.getOutputStream().write(data.getBytes("ASCII"));
             //SerialClass.output.write(data.getBytes("ASCII"));
-
         } catch (Exception e) {
             System.out.println("Nao é possível escrever na porta.\nMsg:"+e.toString());
         }
@@ -46,7 +46,8 @@ public class Main {
         portSerial=SerialCOMGet.main();
         try
         {
-
+            form1 = new SkillForm1();
+            form1.start();
             brdServ = new BroadcastServer(11888); //RECEBE broadcasts
 
             brdSend = new BroadcastClient(11889); //ENVIA broadcasts

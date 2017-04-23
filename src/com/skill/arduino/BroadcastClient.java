@@ -43,14 +43,13 @@ class BroadcastServer extends Thread {
         try {
             DatagramSocket dsock = new DatagramSocket( port );
             DatagramPacket data;
-            System.out.println("UDP INICIADO");
             while(!this.isInterrupted()) {
                 data = new DatagramPacket( new byte[4096], 4096 );
                 dsock.receive(data);
-                System.out.println("UDP recebido.");
+                SkillForm1.incUDP();
                 msgRead=(new String( data.getData(), "ASCII" )).trim();
-                Main.writeArduinoData(msgRead);
                 System.out.println("[UDP RECEIVE] " + msgRead );
+                Main.writeArduinoData(msgRead);
             }
             System.out.println("UDP FINALIZADO");
         } catch( SocketException ex ) {
