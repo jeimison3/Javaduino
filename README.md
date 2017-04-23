@@ -20,6 +20,6 @@ Porta de comunicação é automática para dispositivos "Serial".<br/>
 # Código
 *Favor referir o repositório original.*<br/>
 É necessária a contínua melhoria do código, uma vez que o desempenho pode ser melhorado.<br/>
-# Portas e bitrate
+# Portas e Bitrate
 Configurações de portas dos protocolos e do bitrate são feitas no arquivo *Main.java*.<br/>
 Quaisquer outras alterações podem ser feitas nos respectivos arquivos.<br/>
