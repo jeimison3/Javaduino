@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Javaduino.iml" filepath="$PROJECT_DIR$/Javaduino.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WirelesSIM.iml" filepath="$PROJECT_DIR$/WirelesSIM.iml" />
     </modules>
   </component>
 </project>

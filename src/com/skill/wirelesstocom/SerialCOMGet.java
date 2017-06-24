@@ -1,12 +1,9 @@
-package com.skill.arduino;
+package com.skill.wirelesstocom;
 
 import gnu.io.CommPortIdentifier;
 
 import java.util.Enumeration;
 
-/**
- * Created by Jeimison on 21/04/2017.
- */
 public class SerialCOMGet {
 
     static String PortaIDToStr(int PortaTyp){

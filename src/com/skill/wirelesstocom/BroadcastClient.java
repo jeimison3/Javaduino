@@ -1,10 +1,12 @@
-package com.skill.arduino;
+package com.skill.wirelesstocom;
 
 import java.io.IOException;
-import java.net.*;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.net.InetAddress;
 
 public class BroadcastClient
 {
@@ -16,13 +18,13 @@ public class BroadcastClient
     }
 
     public void enviaBroadcast(String mensagem) throws IOException {
-        for(InetAddress HostBroad:Main.broads) {
+        for(InetAddress HostBroad: Main.broads) {
             DatagramSocket dsock = new DatagramSocket();
-            byte[] send = mensagem.getBytes("ASCII");
+            byte[] send = mensagem.getBytes(Main.CONECTION_ENCODING.getCODING());
             DatagramPacket data = new DatagramPacket(send, send.length, HostBroad, this.PORT);
             dsock.send(data);
         }//Fim do loop foreach
-        System.out.println("> "+Main.broads.size()+" broadcasts feitos.");
+        System.out.println("> "+ Main.broads.size()+" broadcasts feitos.");
     }
 }
 
@@ -44,12 +46,13 @@ class BroadcastServer extends Thread {
             DatagramSocket dsock = new DatagramSocket( port );
             DatagramPacket data;
             while(!this.isInterrupted()) {
-                data = new DatagramPacket( new byte[4096], 4096 );
+                data = new DatagramPacket( new byte[2048], 2048 );
                 dsock.receive(data);
                 SkillForm1.incUDP();
-                msgRead=(new String( data.getData(), "ASCII" )).trim();
+
+                msgRead=(new String( data.getData(), Main.CONECTION_ENCODING.getCODING() )).trim();
                 System.out.println("[UDP RECEIVE] " + msgRead );
-                Main.writeArduinoData(msgRead);
+                Main.writeCOMData(msgRead);
             }
             System.out.println("UDP FINALIZADO");
         } catch( SocketException ex ) {

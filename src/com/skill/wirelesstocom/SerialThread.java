@@ -1,11 +1,8 @@
-package com.skill.arduino;
+package com.skill.wirelesstocom;
 
 import java.io.BufferedReader;
 import java.io.OutputStream;
 
-/**
- * Created by Jeimison on 19/04/2017.
- */
 public class SerialThread extends Thread {
     public SerialClass serial;
     BufferedReader input;

@@ -1,6 +1,12 @@
-package com.skill.arduino;
-import java.net.*;
-import java.util.*;
+package com.skill.wirelesstocom;
+
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class Broadcasts
 {

@@ -1,12 +1,14 @@
-package com.skill.arduino;
+package com.skill.wirelesstocom;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+
 public class SerialClass implements SerialPortEventListener {
 
     public SerialPort serialPort;
@@ -32,17 +34,16 @@ public class SerialClass implements SerialPortEventListener {
 
 // set port parameters
             serialPort.setSerialPortParams(DATA_RATE,
-                    SerialPort.DATABITS_8,
-                    SerialPort.STOPBITS_1,
+                    Main.CONECTION_ENCODING.getDATABITS(),
+                    Main.CONECTION_ENCODING.getSTOPBITS(),
                     SerialPort.PARITY_NONE);
 
-// open the streams
             input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
             output = serialPort.getOutputStream();
             char ch = 1;
             output.write(ch);
 
-// add event listeners
+
             serialPort.addEventListener(this);
             serialPort.notifyOnDataAvailable(true);
         } catch (Exception e) {
@@ -61,7 +62,7 @@ public class SerialClass implements SerialPortEventListener {
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 String inputLine=input.readLine();
-                System.out.println("[ARDUINO OUT]: "+inputLine);
+                System.out.println("[COM OUT]: "+inputLine);
                 SkillForm1.incSerial();
                 Main.writeUDPData(inputLine);
             } catch (Exception e) {

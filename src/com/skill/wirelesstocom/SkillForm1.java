@@ -1,9 +1,7 @@
-package com.skill.arduino;
+package com.skill.wirelesstocom;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class SkillForm1 extends JFrame
 {
@@ -21,7 +19,7 @@ public class SkillForm1 extends JFrame
 
     public SkillForm1() {
 
-        super("Javaduino Interface");
+        super("WirelesSIM - Packet View Interface");
         container = getContentPane();
         setLayout(new FlowLayout(FlowLayout.LEFT,30,20));
 
