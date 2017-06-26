@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WirelesSIM:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WirelesSIM_jar</output-path>
+    <root id="archive" name="WirelesSIM.jar">
+      <element id="module-output" name="WirelesSIM" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/RXTXcomm/RXTXcomm.jar" path-in-jar="/" />
+      <element id="library" level="project" name="RXTXcomm" />
+    </root>
+  </artifact>
+</component>

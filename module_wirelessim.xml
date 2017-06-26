@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_wirelessim" default="compile.module.wirelessim">
+  <dirname property="module.wirelessim.basedir" file="${ant.file.module_wirelessim}"/>
+  
+  <property name="module.jdk.home.wirelessim" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.wirelessim" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.wirelessim" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.wirelessim" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="wirelessim.output.dir" value="${module.wirelessim.basedir}/out/production/WirelesSIM"/>
+  <property name="wirelessim.testoutput.dir" value="${module.wirelessim.basedir}/out/test/WirelesSIM"/>
+  
+  <path id="wirelessim.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="wirelessim.module.production.classpath">
+    <path refid="${module.jdk.classpath.wirelessim}"/>
+    <pathelement location="${basedir}/RXTXcomm/RXTXcomm.jar"/>
+  </path>
+  
+  <path id="wirelessim.runtime.production.module.classpath">
+    <pathelement location="${wirelessim.output.dir}"/>
+    <pathelement location="${basedir}/RXTXcomm/RXTXcomm.jar"/>
+  </path>
+  
+  <path id="wirelessim.module.classpath">
+    <path refid="${module.jdk.classpath.wirelessim}"/>
+    <pathelement location="${wirelessim.output.dir}"/>
+    <pathelement location="${basedir}/RXTXcomm/RXTXcomm.jar"/>
+  </path>
+  
+  <path id="wirelessim.runtime.module.classpath">
+    <pathelement location="${wirelessim.testoutput.dir}"/>
+    <pathelement location="${wirelessim.output.dir}"/>
+    <pathelement location="${basedir}/RXTXcomm/RXTXcomm.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.wirelessim">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.wirelessim">
+    <patternset refid="excluded.from.module.wirelessim"/>
+  </patternset>
+  
+  <path id="wirelessim.module.sourcepath">
+    <dirset dir="${module.wirelessim.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.wirelessim" depends="compile.module.wirelessim.production,compile.module.wirelessim.tests" description="Compile module WirelesSIM"/>
+  
+  <target name="compile.module.wirelessim.production" depends="register.custom.compilers" description="Compile module WirelesSIM; production classes">
+    <mkdir dir="${wirelessim.output.dir}"/>
+    <javac2 destdir="${wirelessim.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.wirelessim}/javac">
+      <compilerarg line="${compiler.args.wirelessim}"/>
+      <bootclasspath refid="wirelessim.module.bootclasspath"/>
+      <classpath refid="wirelessim.module.production.classpath"/>
+      <src refid="wirelessim.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.wirelessim"/>
+    </javac2>
+    
+    <copy todir="${wirelessim.output.dir}">
+      <fileset dir="${module.wirelessim.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.wirelessim.tests" depends="register.custom.compilers,compile.module.wirelessim.production" description="compile module WirelesSIM; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.wirelessim" description="cleanup module">
+    <delete dir="${wirelessim.output.dir}"/>
+    <delete dir="${wirelessim.testoutput.dir}"/>
+  </target>
+</project>

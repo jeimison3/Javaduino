@@ -26,7 +26,7 @@ public class TransmitEncod {
     }
 
     public static TransmitEncod UTF8_TE(){
-        return new TransmitEncod("UTF-8",SerialPort.DATABITS_8,SerialPort.STOPBITS_2);
+        return new TransmitEncod("UTF-8",SerialPort.DATABITS_8,SerialPort.STOPBITS_1);
     }
     public static TransmitEncod ASCII_TE(){
         return new TransmitEncod("ASCII",SerialPort.DATABITS_8,SerialPort.STOPBITS_1);

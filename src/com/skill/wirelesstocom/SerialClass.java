@@ -16,9 +16,9 @@ public class SerialClass implements SerialPortEventListener {
     public static BufferedReader input;
     public static OutputStream output;
     /** Milliseconds to block while waiting for port open */
-    public static final int TIME_OUT = 1000;
+    public static final int TIME_OUT = 10;
     /** Default bits per second for COM port. */
-    public static int DATA_RATE = 250000;
+    public static int DATA_RATE = 2500000;
 
     public void initialize() {
         CommPortIdentifier portId = Main.portSerial;

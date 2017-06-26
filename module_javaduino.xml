@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_javaduino" default="compile.module.javaduino">
+  <dirname property="module.javaduino.basedir" file="${ant.file.module_javaduino}"/>
+  
+  <property name="module.jdk.home.javaduino" value=""/>
+  <property name="module.jdk.bin.javaduino" value=""/>
+  <property name="module.jdk.classpath.javaduino" value=""/>
+  
+  <property name="compiler.args.javaduino" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="javaduino.output.dir" value="undefined"/>
+  <property name="javaduino.testoutput.dir" value="undefined"/>
+  
+  <path id="javaduino.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="javaduino.module.production.classpath"/>
+  
+  <path id="javaduino.runtime.production.module.classpath"/>
+  
+  <path id="javaduino.module.classpath"/>
+  
+  <path id="javaduino.runtime.module.classpath"/>
+  
+  
+  <patternset id="excluded.from.module.javaduino">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.javaduino">
+    <patternset refid="excluded.from.module.javaduino"/>
+  </patternset>
+  
+  
+  <target name="compile.module.javaduino" depends="compile.module.javaduino.production,compile.module.javaduino.tests" description="Compile module Javaduino"/>
+  
+  <target name="compile.module.javaduino.production" depends="register.custom.compilers" description="Compile module Javaduino; production classes"/>
+  
+  <target name="compile.module.javaduino.tests" depends="register.custom.compilers,compile.module.javaduino.production" description="compile module Javaduino; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.javaduino" description="cleanup module">
+    <delete dir="${javaduino.output.dir}"/>
+    <delete dir="${javaduino.testoutput.dir}"/>
+  </target>
+</project>

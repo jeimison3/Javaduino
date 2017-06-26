@@ -1,5 +1,7 @@
 package com.skill.wirelesstocom;
 
+import gnu.io.SerialPortEvent;
+
 import java.io.BufferedReader;
 import java.io.OutputStream;
 
@@ -12,8 +14,10 @@ public class SerialThread extends Thread {
     {
         serial.DATA_RATE=DATA_RT;
         serial = new SerialClass();
-        input = SerialClass.input;
-        output = SerialClass.output;
+        input = serial.input;
+        output = serial.output;
+        this.setPriority(7);
+        this.setDaemon(true);
     }
 
     @Override

@@ -20,5 +20,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="RXTXcomm" level="project" />
   </component>
 </module>

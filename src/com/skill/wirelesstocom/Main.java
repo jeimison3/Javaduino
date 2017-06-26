@@ -88,7 +88,7 @@ public class Main {
             brdSend = new BroadcastClient(11889); //ENVIA broadcasts
 
             if(portSerial!=null) {
-                serialThr = new SerialThread(115200);
+                serialThr = new SerialThread(250000);
                 serialThr.start();
             }else System.err.println("ERRO: NENHUMA PORTA SERIAL FOI ENCONTRADA.");
 

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wirelessim" default="all">
+  
+  
+  <property file="wirelessim.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.ear"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/opencv-3.0.0-1.1-linux-x86_64.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/webcam-capture-0.3.11.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/dense64-0.29.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/opencv-3.0.0-1.1-windows-x86_64.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/flandmark-1.07-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/javacpp-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/ffmpeg-2.8.1-1.1-linux-x86_64.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-io-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-calibration-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-ip-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-ip-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-io-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/ffmpeg-2.8.1-1.1-windows-x86_64.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/equation-0.29.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/simple-0.29.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-calibration-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-geo-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-recognition-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/jna-3.5.2.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-sfm-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/libfreenect-0.5.3-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-learning-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/videoinput-0.200-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/xpp3_min-1.1.4c.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/flycapture-2.8.3.1-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/libdc1394-2.2.3-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/uiautomator.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/georegression-0.11.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/platform-3.5.2.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-geo-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/xmlpull-1.1.3.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/core-0.29.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/javacv-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/xstream-1.4.7.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-learning-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-feature-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/jcodec-0.1.9.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-WebcamCapture-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/slf4j-api-1.7.2.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-WebcamCapture-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-visualize-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-openkinect-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-feature-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/artoolkitplus-2.3.1-1.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-javacv-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/ddogleg-0.9.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-sfm-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-openkinect-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-recognition-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/bridj-0.7.0.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-jcodec-0.24.1-sources.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-jcodec-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-javacv-0.24.1.jar"/>
+      <include name="../../../Users/Jeimison/Documents/APIs/Nova pasta/boofcv-v0.14.1-libs/BoofCV-visualize-0.24.1.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_javaduino.xml"/>
+  
+  <import file="${basedir}/module_wirelessim.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.javaduino, clean.module.wirelessim" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.javaduino, compile.module.wirelessim" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
